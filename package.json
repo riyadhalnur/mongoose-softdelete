@@ -1,7 +1,7 @@
 {
   "name": "mongoose-softdelete",
   "description": "A mongoose plugin to soft delete models",
-  "version": "1.0",
+  "version": "0.9",
   "homepage": "https://github.com/yi/mongoose-trashable",
   "author": {
     "name": "riyadhalnur",
@@ -25,8 +25,9 @@
   "engines": {
     "node": ">= 0.8.0"
   },
-  "devDependencies": {
-    "mongoose": "latest"
+  "dependencies": {
+    "mongoose": "latest",
+    "express": "3.x"
   },
   "keywords": ["mongoose", "mongodb", "model", "soft", "delete"]
 }

@@ -1,7 +1,5 @@
 (function() {
-  var key_name, dateJSON, exports;
-
-  key_name = "deleted_at";
+  var dateJSON, exports;
 
   dateJSON = function(key) {
     var json;
@@ -12,7 +10,7 @@
 
   module.exports = exports = function(schema, options) {
     var keyName;
-    keyName = (options || {}).keyName || key_name;
+    keyName = "deleteFlag";
     schema.add(dateJSON(keyName));
     schema.methods.remove = function(callback) {
       this[keyName] = Date.now();
