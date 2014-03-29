@@ -1,12 +1,12 @@
 {
   "name": "mongoose-softdelete",
   "description": "A mongoose plugin to soft delete models",
-  "version": "1.0",
-  "homepage": "https://github.com/yi/mongoose-trashable",
+  "version": "0.0.5",
+  "homepage": "https://github.com/riyadhalnur/mongoose-softdelete",
   "author": {
     "name": "riyadhalnur",
-    "email": "riyadhalnur@verticalaxisbd.com",
-    "url": "https://github.com/riyadhalnur/"
+    "email": "riyadh.the.devil@gmail.com",
+    "url": "http://riyadhalnur.github.io/mongoose-softdelete/"
   },
   "repository": {
     "type": "git",
@@ -23,10 +23,19 @@
   ],
   "main": "src/mongoose-softdelete",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "mongoose": "latest"
   },
-  "keywords": ["mongoose", "mongodb", "model", "soft", "delete"]
+  "devDependencies": {
+    "mongoose": "latest",
+    "express": "3.x",
+    "grunt": "0.4.x",
+    "grunt-contrib-jshint": "0.9.x",
+    "grunt-express-server": "0.4.x"
+  },
+  "scripts": {
+    "start": "node example/app.js"
+  }
 }
