@@ -1,23 +1,16 @@
 (function() {
-  var dateJSON, exports;
-
-  dateJSON = function(key) {
-    var json;
-    json = {};
-    json[key] = Date;
-    return json;
-  };
-
-  module.exports = exports = function(schema, options) {
-    var keyName;
-    keyName = "deleteFlag";
-    schema.add(dateJSON(keyName));
+  module.exports = function(schema, data) {
+    var keyname, deleted_by;
+    schema.add({ keyname: null });
+    schema.add({ deleted_by: null });
     schema.methods.remove = function(callback) {
-      this[keyName] = Date.now();
+      this[keyname] = Date.now();
+      this[deleted_by] = data.user._id;
       this.save(callback);
     };
-    return schema.methods.unremove = function(callback) {
-      this[keyName] = null;
+    schema.methods.unremove = function(callback) {
+      this[keyname] = null;
+      this[deleted_by] = null;
       this.save(callback);
     };
   };
