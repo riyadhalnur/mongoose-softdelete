@@ -1,7 +1,7 @@
 {
   "name": "mongoose-softdelete",
   "description": "A mongoose plugin to soft delete models",
-  "version": "0.0.5",
+  "version": "0.1",
   "homepage": "https://github.com/riyadhalnur/mongoose-softdelete",
   "author": {
     "name": "riyadhalnur",
