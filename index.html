@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Mongoose-softdelete by riyadhalnur</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/riyadhalnur/mongoose-softdelete">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Mongoose-softdelete</h1>
+            <h2>Soft delete MongoDB documents</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/riyadhalnur/mongoose-softdelete/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/riyadhalnur/mongoose-softdelete/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a name="mongoose-soft-delete-plugin" class="anchor" href="#mongoose-soft-delete-plugin"><span class="octicon octicon-link"></span></a>Mongoose Soft Delete Plugin</h1>
+
+<p>Mongoose plugin that enables soft deletion of Models/Documents.  </p>
+
+<p>This plugin is based on the work of <a href="https://github.com/yi">Yi</a>.  </p>
+
+<h2>
+<a name="whats-different" class="anchor" href="#whats-different"><span class="octicon octicon-link"></span></a>What's Different</h2>
+
+<p>In the original plugin, models were deleted with a date reference only. This version takes that and adds user handling. Now, whoever deleted the data will be recorded in the DB. Additionally, it removes a lot of overhead from the original code and simplifies it and doesn't use Coffeescript for the original code. Also included is an example express app to see if the plugin works.  </p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This plugin is licensed under the MIT license and can ve viewed in the LICENSE file.  </p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Install using <a href="https://npmjs.org">npm</a>  </p>
+
+<pre><code>npm install mongoose-softdelete
+</code></pre>
+
+<p>To use the example app  </p>
+
+<pre><code>grunt
+</code></pre>
+
+<p>This will start an express server on port 3000 after successful linting. You can view the example at localhost:3000 in your browser. The console will show a message if the operation is successful and the app will exit.</p>
+
+<p>To start example without linting</p>
+
+<pre><code>grunt express:dev:start
+</code></pre>
+
+<p>To lint only</p>
+
+<pre><code>grunt jshint
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<pre><code>var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    soft_delete = require('mongoose-softdelete');
+
+var Test = new Schema({
+  somefield: { type: String, default: 'Hello World!'}
+});
+
+Test.plugin(soft_delete);
+
+instance = new Test();
+
+var user = {};
+user._id = '23213d123dw12fsfsf';
+
+instance.bin(user, function(err, done) {
+  console.log(done.deleted_at);
+});
+</code></pre>
+
+<h2>
+<a name="copyright" class="anchor" href="#copyright"><span class="octicon octicon-link"></span></a>Copyright</h2>
+
+<p>Copyright 2014 <a href="https://github.com/riyadhalnur">Riyadh Al Nur</a> and <a href="https://github.com/afm-sayem">AFM Sayem</a>.<br>
+Built with love at <a href="https://github.com/NewsCred" class="user-mention">@NewsCred</a>, Dhaka, Bangladesh.</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/riyadhalnur">riyadhalnur</a> can be found on <a href="https://github.com/riyadhalnur/mongoose-softdelete">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-49473294-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
