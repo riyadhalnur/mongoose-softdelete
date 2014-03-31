@@ -15,7 +15,7 @@ user._id = '21wf232efe312212';
 
 app.get('/', function (req, res) {
   res.send('Hello!');
-  instance.remove(user, function(err, doc) {
+  instance.bin(user, function(err, doc) {
     console.log("after remove: doc.deleted_at:"+doc.deleted_at);
   });
 });
