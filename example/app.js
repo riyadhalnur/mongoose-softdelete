@@ -15,8 +15,8 @@ user._id = '21wf232efe312212';
 
 app.get('/', function (req, res) {
   res.send('Hello!');
-  instance.bin(user, function(err, doc) {
-    console.log("after remove: doc.deleted_at:"+doc.deleted_at);
+  instance.bin(user, function(err, success) {
+    console.log(success.deleted_at);
   });
 });
 

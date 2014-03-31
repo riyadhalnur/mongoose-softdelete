@@ -34,6 +34,11 @@ To lint only
 grunt jshint
 ```  
 
+To run test
+```
+grunt simplemocha
+```
+
 ## Usage 
 ```
 var mongoose = require('mongoose'),
@@ -57,5 +62,5 @@ instance.bin(user, function(err, done) {
 ```  
 
 ## Copyright  
-Copyright 2014 [Riyadh Al Nur](https://github.com/riyadhalnur) and [AFM Sayem](https://github.com/afm-sayem).  
+Copyright 2014 [Riyadh Al Nur](https://github.com/riyadhalnur).  
 Built with love at @NewsCred, Dhaka, Bangladesh.

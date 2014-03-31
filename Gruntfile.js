@@ -5,6 +5,17 @@ module.exports = function(grunt) {
     jshint: {
       files: ['example/app.js', 'example/models.js', 'src/mongoose-softdelete.js']
     },
+    simplemocha: {
+      options: {
+        globals: ['assert'],
+        timeout: 3000,
+        ignoreLeaks: false,
+        grep: '*-test',
+        ui: 'bdd',
+        reporter: 'tap'
+      },
+      all: { src: 'tests/tests.js' }
+    },
     express: {
       dev: {
         options: {
@@ -16,6 +27,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-simple-mocha');
 
-  grunt.registerTask('default', ['jshint', 'express:dev']);
+  grunt.registerTask('default', ['jshint', 'simplemocha', 'express:dev']);
 };

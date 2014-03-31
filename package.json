@@ -3,6 +3,13 @@
   "description": "A mongoose plugin to soft delete models",
   "version": "0.1.1",
   "homepage": "http://riyadhalnur.github.io/mongoose-softdelete",
+  "keywords": [
+    "mongoose",
+    "plugin",
+    "soft delete",
+    "delete",
+    "remove"
+  ],
   "author": {
     "name": "riyadhalnur",
     "email": "riyadh.the.devil@gmail.com",
@@ -33,7 +40,9 @@
     "express": "3.x",
     "grunt": "0.4.x",
     "grunt-contrib-jshint": "0.9.x",
-    "grunt-express-server": "0.4.x"
+    "grunt-express-server": "0.4.x",
+    "mocha": "1.18.2",
+    "grunt-simple-mocha": "0.4.0"
   },
   "scripts": {
     "start": "node example/app.js"
