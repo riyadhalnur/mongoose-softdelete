@@ -1,7 +1,6 @@
 var assert = require('assert'),
     mongoose = require('mongoose'),
     soft_delete = require('src/mongoose-softdelete.js'),
-    models = require('example/models.js'),
     Schema = mongoose.Schema;
 
 mongoose.connect('mongodb://localhost/softtest');
@@ -12,22 +11,35 @@ db.once('open', function callback () {
   console.log('Database connection made');
 });
 
+var TestSchema = new Schema({
+  name: { type: String, default: 'Riyadh' },
+  comment: { type: String, default: 'lalalalalalala' }
+});
+
+TestSchema.plugin(soft_delete);
+
+var Test = mongoose.model('Test', TestSchema);
+var test = new Test();
+
 describe("Plugin Test", function() {
-  it("should bin/unbin data in the DB", function(done) {
-    instance = new models.Test();
+  it("should delete/restore data in the DB", function(done) {
     var user = {};
     user._id = '21wf232efe312212';
 
-    instance.bin(user, function(err, success) {
+    test.softdelete(user, function(err, success) {
       if (err) { console.log('Error deleting data!'); }
-      assert.equal(success.deleted_at, Date.now());
-      console.log(success.deleted_at);
+      assert.equal(success.delete, true);
+      assert.equal(success.deleted_by, user._id);
+      console.log(success.delete);
+      console.log(success.deleted_by);
     });
 
-    instance.unbin(user, function(err, success) {
+    test.restore(user, function(err, success) {
       if (err) { console.log('Error restoring data!'); }
-      assert.equal(success.deleted_at, null);
-      console.log(success.deleted_at);
+      assert.equal(success.deleted_at, false);
+      assert.equal(success.deleted_by, null);
+      console.log(success.delete);
+      console.log(success.deleted_by);
     });
   });
 });

@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
-      files: ['example/app.js', 'example/models.js', 'src/mongoose-softdelete.js']
+      files: ['example/app.js', 'src/mongoose-softdelete.js']
     },
     simplemocha: {
       options: {
