@@ -56,7 +56,7 @@
 <h2>
 <a name="whats-different" class="anchor" href="#whats-different"><span class="octicon octicon-link"></span></a>What's Different</h2>
 
-<p>In the original plugin, models were deleted with a date reference only. This version takes that and adds user handling. Now, whoever deleted the data will be recorded in the DB. Additionally, it removes a lot of overhead from the original code and simplifies it and doesn't use Coffeescript for the original code. Also included is an example express app to see if the plugin works.  </p>
+<p>In the original plugin, models were deleted with a date reference only. This version takes that and uses a Boolean flag to to mark models deleted/restored along with with user handling. Now, whoever deleted the data will be recorded in the DB. Additionally, it removes a lot of overhead from the original code and doesn't use Coffeescript for the original code. Also included is an example express app to see if the plugin works.  </p>
 
 <h2>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
@@ -88,6 +88,11 @@
 <pre><code>grunt jshint
 </code></pre>
 
+<p>To run test</p>
+
+<pre><code>grunt simplemocha
+</code></pre>
+
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
@@ -95,26 +100,32 @@
     Schema = mongoose.Schema,
     soft_delete = require('mongoose-softdelete');
 
-var Test = new Schema({
+var TestSchema = new Schema({
   somefield: { type: String, default: 'Hello World!'}
 });
 
-Test.plugin(soft_delete);
+TestSchema.plugin(soft_delete);
 
-instance = new Test();
+var Test = mongoose.model('Test', TestSchema);
+var test = new Test();
 
 var user = {};
 user._id = '23213d123dw12fsfsf';
 
-instance.bin(user, function(err, done) {
-  console.log(done.deleted_at);
+test.softdelete(user, function(err, done) {
+  console.log(done.delete);
 });
+
+test.restore(user, function(err, done) {
+  console.log(done.delete);
+});  
+
 </code></pre>
 
 <h2>
 <a name="copyright" class="anchor" href="#copyright"><span class="octicon octicon-link"></span></a>Copyright</h2>
 
-<p>Copyright 2014 <a href="https://github.com/riyadhalnur">Riyadh Al Nur</a> and <a href="https://github.com/afm-sayem">AFM Sayem</a>.<br>
+<p>Copyright 2014 <a href="https://github.com/riyadhalnur">Riyadh Al Nur</a>.<br>
 Built with love at <a href="https://github.com/NewsCred" class="user-mention">@NewsCred</a>, Dhaka, Bangladesh.</p>
       </section>
 
