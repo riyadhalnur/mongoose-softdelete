@@ -28,17 +28,17 @@ describe("Plugin Test", function() {
 
     test.softdelete(user, function(err, success) {
       if (err) { console.log('Error deleting data!'); }
-      assert.equal(success.delete, true);
+      assert.equal(success.deleted, true);
       assert.equal(success.deleted_by, user._id);
-      console.log(success.delete);
+      console.log(success.deleted);
       console.log(success.deleted_by);
     });
 
     test.restore(user, function(err, success) {
       if (err) { console.log('Error restoring data!'); }
-      assert.equal(success.deleted_at, false);
+      assert.equal(success.deleted, false);
       assert.equal(success.deleted_by, null);
-      console.log(success.delete);
+      console.log(success.deleted);
       console.log(success.deleted_by);
     });
   });

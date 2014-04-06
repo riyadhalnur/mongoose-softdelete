@@ -23,7 +23,7 @@ user._id = '21wf232efe312212';
 app.get('/', function (req, res) {
   res.send('Hello!');
   test.softdelete(user, function(err, success) {
-    console.log(success.delete);
+    console.log(success.deleted);
   });
 });
 
