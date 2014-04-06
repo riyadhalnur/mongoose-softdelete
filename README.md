@@ -58,11 +58,11 @@ var user = {};
 user._id = '23213d123dw12fsfsf';
 
 test.softdelete(user, function(err, done) {
-  console.log(done.delete);
+  console.log(done.deleted);
 });
 
 test.restore(user, function(err, done) {
-  console.log(done.delete);
+  console.log(done.deleted);
 });  
 
 ```  
