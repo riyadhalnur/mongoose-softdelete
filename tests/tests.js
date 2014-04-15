@@ -23,23 +23,17 @@ var test = new Test();
 
 describe("Plugin Test", function() {
   it("should delete/restore data in the DB", function(done) {
-    var user = {};
-    user._id = '21wf232efe312212';
 
-    test.softdelete(user, function(err, success) {
+    test.softdelete(function(err, success) {
       if (err) { console.log('Error deleting data!'); }
       assert.equal(success.deleted, true);
-      assert.equal(success.deletedBy, user._id);
       console.log(success.deleted);
-      console.log(success.deletedBy);
     });
 
     test.restore(user, function(err, success) {
       if (err) { console.log('Error restoring data!'); }
       assert.equal(success.deleted, false);
-      assert.equal(success.deletedBy, null);
       console.log(success.deleted);
-      console.log(success.deletedBy);
     });
   });
 });

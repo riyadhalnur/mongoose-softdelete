@@ -6,7 +6,7 @@ Mongoose plugin that enables soft deletion of Models/Documents.
 This plugin is based on the work of [Yi](https://github.com/yi).  
 
 ## What's Different  
-In the original plugin, models were deleted with a date reference only. This version takes that and uses a Boolean flag to to mark models deleted/restored along with with user handling. Now, whoever deleted the data will be recorded in the DB. Additionally, it removes a lot of overhead from the original code and doesn't use Coffeescript for the original code. Also included is an example express app to see if the plugin works.  
+In the original plugin, models were deleted with a date reference only. This version takes that and uses a Boolean flag to to mark models deleted/restored. Now, whoever deleted the data will be recorded in the DB. Additionally, it removes a lot of overhead from the original code and doesn't use Coffeescript for the original code. Also included is an example express app to see if the plugin works.  
 
 ## License  
 This plugin is licensed under the MIT license and can ve viewed in the LICENSE file.  
@@ -54,14 +54,11 @@ TestSchema.plugin(soft_delete);
 var Test = mongoose.model('Test', TestSchema);
 var test = new Test();
 
-var user = {};
-user._id = '23213d123dw12fsfsf';
-
-test.softdelete(user, function(err, done) {
+test.softdelete(function(err, done) {
   console.log(done.deleted);
 });
 
-test.restore(user, function(err, done) {
+test.restore(function(err, done) {
   console.log(done.deleted);
 });  
 

@@ -17,12 +17,10 @@ TestSchema.plugin(soft_delete);
 
 var Test = mongoose.model('Test', TestSchema);
 var test = new Test();
-var user = {};
-user._id = '21wf232efe312212';
 
 app.get('/', function (req, res) {
   res.send('Hello!');
-  test.softdelete(user, function(err, success) {
+  test.softdelete(function(err, success) {
     console.log(success.deleted);
   });
 });
