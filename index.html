@@ -1,146 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
-
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
+    <meta charset="UTF-8">
     <title>Mongoose-softdelete by riyadhalnur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
-    <a id="forkme_banner" href="https://github.com/riyadhalnur/mongoose-softdelete">View on GitHub</a>
-    <div class="shell">
+    <section class="page-header">
+      <h1 class="project-name">Mongoose-softdelete</h1>
+      <h2 class="project-tagline">Soft delete MongoDB documents</h2>
+      <a href="https://github.com/riyadhalnur/mongoose-softdelete" class="btn">View on GitHub</a>
+      <a href="https://github.com/riyadhalnur/mongoose-softdelete/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/riyadhalnur/mongoose-softdelete/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Mongoose-softdelete</h1>
-            <h2>Soft delete MongoDB documents</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
+    <section class="main-content">
+      <p><a href="https://travis-ci.org/riyadhalnur/mongoose-softdelete"><img src="https://travis-ci.org/riyadhalnur/mongoose-softdelete.svg" alt="Build Status"></a></p>
 
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/riyadhalnur/mongoose-softdelete/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/riyadhalnur/mongoose-softdelete/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
-
-
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
-        <h1>
-<a name="mongoose-soft-delete-plugin" class="anchor" href="#mongoose-soft-delete-plugin"><span class="octicon octicon-link"></span></a>Mongoose Soft Delete Plugin</h1>
+<h1>
+<a id="mongoose-soft-delete-plugin" class="anchor" href="#mongoose-soft-delete-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mongoose Soft Delete Plugin</h1>
 
 <p>Mongoose plugin that enables soft deletion of Models/Documents.  </p>
 
 <p>This plugin is based on the work of <a href="https://github.com/yi">Yi</a>.  </p>
 
 <h2>
-<a name="whats-different" class="anchor" href="#whats-different"><span class="octicon octicon-link"></span></a>What's Different</h2>
+<a id="whats-different" class="anchor" href="#whats-different" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's Different</h2>
 
 <p>In the original plugin, models were deleted with a date reference only. This version takes that and uses a Boolean flag to to mark models deleted/restored. Now, whoever deleted the data will be recorded in the DB. Additionally, it removes a lot of overhead from the original code and doesn't use Coffeescript for the original code. Also included is an example express app to see if the plugin works.  </p>
 
 <h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>This plugin is licensed under the MIT license and can ve viewed in the LICENSE file.  </p>
 
 <h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <p>Install using <a href="https://npmjs.org">npm</a>  </p>
 
-<pre><code>npm install mongoose-softdelete
-</code></pre>
-
-<p>To use the example app  </p>
-
-<pre><code>grunt
-</code></pre>
-
-<p>This will start an express server on port 3000 after successful linting. You can view the example at localhost:3000 in your browser. The console will show a message if the operation is successful and the app will exit.</p>
-
-<p>To start example without linting</p>
-
-<pre><code>grunt express:dev:start
-</code></pre>
-
-<p>To lint only</p>
-
-<pre><code>grunt jshint
-</code></pre>
-
-<p>To run test</p>
-
-<pre><code>grunt simplemocha
+<pre><code>npm install mongoose-softdelete --save
 </code></pre>
 
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
 
-<pre><code>var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    soft_delete = require('mongoose-softdelete');
+<p>IMPORTANT: You need to have MongoDB running to run tests  </p>
 
-var TestSchema = new Schema({
-  somefield: { type: String, default: 'Hello World!'}
-});
-
-TestSchema.plugin(soft_delete);
-
-var Test = mongoose.model('Test', TestSchema);
-var test = new Test();
-
-test.softdelete(function(err, done) {
-  console.log(done.deleted);
-});
-
-test.restore(function(err, done) {
-  console.log(done.deleted);
-});  
-
+<pre><code>npm test
 </code></pre>
 
 <h2>
-<a name="copyright" class="anchor" href="#copyright"><span class="octicon octicon-link"></span></a>Copyright</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>Copyright 2014 <a href="https://github.com/riyadhalnur">Riyadh Al Nur</a>.<br>
-Built with love at <a href="https://github.com/NewsCred" class="user-mention">@NewsCred</a>, Dhaka, Bangladesh.</p>
-      </section>
+<p><strong>models/test.js</strong>  </p>
 
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/riyadhalnur">riyadhalnur</a> can be found on <a href="https://github.com/riyadhalnur/mongoose-softdelete">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
+<div class="highlight highlight-js"><pre><span class="pl-k">var</span> mongoose <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>mongoose<span class="pl-pds">'</span></span>),
+    Schema <span class="pl-k">=</span> mongoose.Schema,
+    soft_delete <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>mongoose-softdelete<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> TestSchema <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Schema</span>({
+  somefield<span class="pl-k">:</span> { type<span class="pl-k">:</span> <span class="pl-c1">String</span>, <span class="pl-k">default</span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Hello World!<span class="pl-pds">'</span></span>}
+});
+
+TestSchema.plugin(soft_delete);  </pre></div>
+
+<p><strong>controllers/test.js</strong>  </p>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">var</span> Test <span class="pl-k">=</span> mongoose.model(<span class="pl-s"><span class="pl-pds">'</span>Test<span class="pl-pds">'</span></span>, TestSchema);
+<span class="pl-k">var</span> test <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Test</span>();
+
+test.softdelete(<span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">newTest</span>) {
+  <span class="pl-k">if</span> (err) { callback(err); }  
+  callback(<span class="pl-c1">null</span>, newTest);
+});
+
+test.restore(<span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">newTest</span>) {
+  <span class="pl-k">if</span> (err) { callback(err); }  
+  callback(<span class="pl-c1">null</span>, newTest);
+});  </pre></div>
+
+<p>Built with love in Dhaka, Bangladesh by <a href="https://twitter.com/riyadhalnur">Riyadh Al Nur</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/riyadhalnur/mongoose-softdelete">Mongoose-softdelete</a> is maintained by <a href="https://github.com/riyadhalnur">riyadhalnur</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
 
-    </div>
+    </section>
 
-              <script type="text/javascript">
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -153,3 +107,4 @@ Built with love at <a href="https://github.com/NewsCred" class="user-mention">@N
 
   </body>
 </html>
+
