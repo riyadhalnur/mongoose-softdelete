@@ -39,13 +39,15 @@ var TestSchema = new Schema({
   somefield: { type: String, default: 'Hello World!'}
 });
 
-TestSchema.plugin(soft_delete);  
+TestSchema.plugin(soft_delete);
+
+mongoose.model('Test', TestSchema);  
 ```  
 
 **controllers/test.js**  
 
 ```js  
-var Test = mongoose.model('Test', TestSchema);
+var Test = mongoose.model('Test');
 var test = new Test();
 
 test.softdelete(function(err, newTest) {
