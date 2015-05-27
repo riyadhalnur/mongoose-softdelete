@@ -67,11 +67,13 @@
   somefield<span class="pl-k">:</span> { type<span class="pl-k">:</span> <span class="pl-c1">String</span>, <span class="pl-k">default</span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Hello World!<span class="pl-pds">'</span></span>}
 });
 
-TestSchema.plugin(soft_delete);  </pre></div>
+TestSchema.plugin(soft_delete);
+
+mongoose.model(<span class="pl-s"><span class="pl-pds">'</span>Test<span class="pl-pds">'</span></span>, TestSchema);  </pre></div>
 
 <p><strong>controllers/test.js</strong>  </p>
 
-<div class="highlight highlight-js"><pre><span class="pl-k">var</span> Test <span class="pl-k">=</span> mongoose.model(<span class="pl-s"><span class="pl-pds">'</span>Test<span class="pl-pds">'</span></span>, TestSchema);
+<div class="highlight highlight-js"><pre><span class="pl-k">var</span> Test <span class="pl-k">=</span> mongoose.model(<span class="pl-s"><span class="pl-pds">'</span>Test<span class="pl-pds">'</span></span>);
 <span class="pl-k">var</span> test <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Test</span>();
 
 test.softdelete(<span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">newTest</span>) {
