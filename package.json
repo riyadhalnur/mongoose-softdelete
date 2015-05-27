@@ -1,14 +1,15 @@
 {
   "name": "mongoose-softdelete",
   "description": "Mongoose plugin that enables soft deletion of Models/Documents.",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "homepage": "http://riyadhalnur.github.io/mongoose-softdelete",
   "keywords": [
     "mongoose",
     "plugin",
     "soft delete",
     "delete",
-    "remove"
+    "remove",
+    "restore"
   ],
   "author": {
     "name": "Riyadh Al Nur",
