@@ -1,6 +1,4 @@
-var exports;
-
-exports = module.exports = function(schema) {
+module.exports = function(schema) {
   schema.add({ deleted: Boolean });
 
   schema.pre('save', function (next) {

@@ -1,12 +1,14 @@
-var assert = require('assert'),
+var should = require('should'),
     mongoose = require('mongoose'),
-    soft_delete = require('src/mongoose-softdelete.js'),
+    soft_delete = require('../src/mongoose-softdelete.js'),
     Schema = mongoose.Schema;
 
 mongoose.connect('mongodb://localhost/softtest');
 
 var db = mongoose.connection;
+
 db.on('error', console.error.bind(console, 'connection error: please check if mongodb is running on localhost'));
+
 db.once('open', function callback () {
   console.log('Database connection made');
 });
@@ -19,21 +21,23 @@ var TestSchema = new Schema({
 TestSchema.plugin(soft_delete);
 
 var Test = mongoose.model('Test', TestSchema);
-var test = new Test();
+var test1 = new Test();
+var test2 = new Test({ deleted: true });
 
-describe("Plugin Test", function() {
-  it("should delete/restore data in the DB", function(done) {
-
-    test.softdelete(function(err, success) {
-      if (err) { console.log('Error deleting data!'); }
-      assert.equal(success.deleted, true);
-      console.log(success.deleted);
+describe('Mongoose Softdelete Plugin', function () {
+  it('should delete data in the DB', function (done) {
+    test1.softdelete(function (err, newTest) {
+      should.not.exist(err);
+      newTest.deleted.should.be.true;
+      done();
     });
+  });
 
-    test.restore(user, function(err, success) {
-      if (err) { console.log('Error restoring data!'); }
-      assert.equal(success.deleted, false);
-      console.log(success.deleted);
+  it('should restore data from the DB', function (done) {
+    test2.restore(function (err, newTest) {
+      should.not.exist(err);
+      newTest.deleted.should.be.false;
+      done();
     });
   });
 });
