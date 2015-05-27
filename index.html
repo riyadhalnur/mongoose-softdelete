@@ -19,7 +19,7 @@
     </section>
 
     <section class="main-content">
-      <p><a href="https://travis-ci.org/riyadhalnur/mongoose-softdelete"><img src="https://travis-ci.org/riyadhalnur/mongoose-softdelete.svg" alt="Build Status"></a></p>
+      <p><a href="https://travis-ci.org/riyadhalnur/mongoose-softdelete"><img src="https://travis-ci.org/riyadhalnur/mongoose-softdelete.svg?branch=master" alt="Build Status"></a></p>
 
 <h1>
 <a id="mongoose-soft-delete-plugin" class="anchor" href="#mongoose-soft-delete-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mongoose Soft Delete Plugin</h1>
@@ -31,7 +31,7 @@
 <h2>
 <a id="whats-different" class="anchor" href="#whats-different" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's Different</h2>
 
-<p>In the original plugin, models were deleted with a date reference only. This version takes that and uses a Boolean flag to to mark models deleted/restored. Now, whoever deleted the data will be recorded in the DB. Additionally, it removes a lot of overhead from the original code and doesn't use Coffeescript for the original code. Also included is an example express app to see if the plugin works.  </p>
+<p>In the original plugin, models were deleted with a date reference only. This version takes that and uses a Boolean flag to to mark models deleted/restored. Adds <code>deletedAt</code> field to record when a document was deleted. Additionally, it removes a lot of overhead from the original code and doesn't use Coffeescript for the original code.  </p>
 
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
