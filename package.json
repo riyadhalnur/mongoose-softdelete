@@ -1,7 +1,7 @@
 {
   "name": "mongoose-softdelete",
-  "description": "Mongoose plugin that enables soft deletion of Models/Documents. ",
-  "version": "0.2.5",
+  "description": "Mongoose plugin that enables soft deletion of Models/Documents.",
+  "version": "0.5.0",
   "homepage": "http://riyadhalnur.github.io/mongoose-softdelete",
   "keywords": [
     "mongoose",
@@ -11,8 +11,8 @@
     "remove"
   ],
   "author": {
-    "name": "riyadhalnur",
-    "email": "riyadh.the.devil@gmail.com",
+    "name": "Riyadh Al Nur",
+    "email": "riyadhalnur@verticalaxisbd.com",
     "url": "http://blog.verticalaxisbd.com"
   },
   "repository": {
@@ -32,19 +32,12 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "dependencies": {
-    "mongoose": "latest"
-  },
   "devDependencies": {
-    "mongoose": "latest",
-    "express": "3.x",
-    "grunt": "0.4.x",
-    "grunt-contrib-jshint": "0.9.x",
-    "grunt-express-server": "0.4.x",
-    "mocha": "1.18.2",
-    "grunt-simple-mocha": "0.4.0"
+    "mongoose": "*",
+    "mocha": "*",
+    "should": "6.0.3"
   },
   "scripts": {
-    "start": "node example/app.js"
+    "test": "mocha tests/tests.js"
   }
 }
