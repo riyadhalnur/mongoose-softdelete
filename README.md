@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/riyadhalnur/mongoose-softdelete.svg)](https://travis-ci.org/riyadhalnur/mongoose-softdelete)
+
 Mongoose Soft Delete Plugin
 ============================
 
@@ -14,33 +16,21 @@ This plugin is licensed under the MIT license and can ve viewed in the LICENSE f
 ## Installation  
 Install using [npm](https://npmjs.org)  
 ```
-npm install mongoose-softdelete
+npm install mongoose-softdelete --save
 ```  
 
-To use the example app  
-```
-grunt
-```  
+## Tests  
+IMPORTANT: You need to have MongoDB running to run tests  
 
-This will start an express server on port 3000 after successful linting. You can view the example at localhost:3000 in your browser. The console will show a message if the operation is successful and the app will exit.
-
-To start example without linting
 ```
-grunt express:dev:start
-```  
-
-To lint only
-```
-grunt jshint
-```  
-
-To run test
-```
-grunt simplemocha
+npm test
 ```
 
-## Usage 
-```
+## Usage  
+
+**models/test.js**  
+
+```js
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     soft_delete = require('mongoose-softdelete');
@@ -49,21 +39,24 @@ var TestSchema = new Schema({
   somefield: { type: String, default: 'Hello World!'}
 });
 
-TestSchema.plugin(soft_delete);
+TestSchema.plugin(soft_delete);  
+```  
 
+**controllers/test.js**  
+
+```js  
 var Test = mongoose.model('Test', TestSchema);
 var test = new Test();
 
-test.softdelete(function(err, done) {
-  console.log(done.deleted);
+test.softdelete(function(err, newTest) {
+  if (err) { callback(err); }  
+  callback(null, newTest);
 });
 
-test.restore(function(err, done) {
-  console.log(done.deleted);
+test.restore(function(err, newTest) {
+  if (err) { callback(err); }  
+  callback(null, newTest);
 });  
-
 ```  
-
-## Copyright  
-Copyright 2014 [Riyadh Al Nur](https://github.com/riyadhalnur).  
-Built with love at @NewsCred, Dhaka, Bangladesh.
+ 
+Built with love in Dhaka, Bangladesh by [Riyadh Al Nur](https://twitter.com/riyadhalnur)
