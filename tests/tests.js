@@ -1,3 +1,5 @@
+'use strict';
+
 var should = require('should'),
     mongoose = require('mongoose'),
     soft_delete = require('../src/mongoose-softdelete.js'),

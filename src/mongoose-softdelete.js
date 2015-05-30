@@ -1,6 +1,8 @@
+'use strict';
+
 module.exports = function(schema) {
   schema.add({ deleted: Boolean });
-  schema.add({ deletedAt: Date })
+  schema.add({ deletedAt: Date });
 
   schema.pre('save', function (next) {
     if (!this.deleted) {
