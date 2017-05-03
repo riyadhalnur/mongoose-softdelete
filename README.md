@@ -3,6 +3,8 @@
 Mongoose Soft Delete Plugin
 ============================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/riyadhalnur/mongoose-softdelete.svg)](https://greenkeeper.io/)
+
 Mongoose plugin that enables soft deletion of Models/Documents.  
 
 This plugin is based on the work of [Yi](https://github.com/yi).  
