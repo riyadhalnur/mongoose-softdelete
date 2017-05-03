@@ -36,7 +36,7 @@
   "devDependencies": {
     "mongoose": "*",
     "mocha": "*",
-    "should": "6.0.3"
+    "should": "11.2.1"
   },
   "scripts": {
     "test": "mocha tests/tests.js"
