@@ -61,7 +61,7 @@ describe('Mongoose Softdelete Plugin', function () {
   it('should be able to find using query method using defaults', function (done) {
     Test.find().isDeleted().exec(function (err, results) {
       should.not.exist(err);
-      console.log(results);
+      should.equal(results.length, 2);
       done();
     });
   });
@@ -69,7 +69,7 @@ describe('Mongoose Softdelete Plugin', function () {
   it('should be able to find using query method', function (done) {
     Test.find().isDeleted(false).exec(function (err, results) {
       should.not.exist(err);
-      console.log(results);
+      should.equal(results.length, 1);
       done();
     });
   });
