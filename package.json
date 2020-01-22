@@ -39,6 +39,6 @@
     "should": "13.2.3"
   },
   "scripts": {
-    "test": "mocha tests/tests.js"
+    "test": "mocha tests/tests.js --exit"
   }
 }
