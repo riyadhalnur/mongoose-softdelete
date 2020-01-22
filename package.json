@@ -14,7 +14,7 @@
   "author": {
     "name": "Riyadh Al Nur",
     "email": "riyadhalnur@verticalaxisbd.com",
-    "url": "http://blog.verticalaxisbd.com"
+    "url": "https://verticalaxisbd.com"
   },
   "repository": {
     "type": "git",
@@ -31,12 +31,12 @@
   ],
   "main": "src/mongoose-softdelete",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 10.x"
   },
   "devDependencies": {
-    "mongoose": "*",
-    "mocha": "*",
-    "should": "6.0.3"
+    "mocha": "7.0.0",
+    "mongoose": "5.8.9",
+    "should": "13.2.3"
   },
   "scripts": {
     "test": "mocha tests/tests.js"
