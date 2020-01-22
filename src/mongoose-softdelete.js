@@ -27,4 +27,14 @@ module.exports = function(schema) {
     this.deletedAt = null;
     this.save(callback);
   };
+
+  schema.query.isDeleted = function(cond) {
+    if (typeof cond === 'undefined') {
+      cond = true;
+    }
+    
+    return this.find({
+      deleted: cond
+    });
+  };
 };

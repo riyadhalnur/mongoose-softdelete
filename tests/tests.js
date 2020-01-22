@@ -57,4 +57,20 @@ describe('Mongoose Softdelete Plugin', function () {
       done();
     });
   });
+
+  it('should be able to find using query method using defaults', function (done) {
+    Test.find().isDeleted().exec(function (err, results) {
+      should.not.exist(err);
+      console.log(results);
+      done();
+    });
+  });
+
+  it('should be able to find using query method', function (done) {
+    Test.find().isDeleted(false).exec(function (err, results) {
+      should.not.exist(err);
+      console.log(results);
+      done();
+    });
+  });
 });
