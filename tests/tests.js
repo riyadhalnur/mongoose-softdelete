@@ -1,27 +1,31 @@
 'use strict';
 
-var should = require('should'),
-    mongoose = require('mongoose'),
-    soft_delete = require('../src/mongoose-softdelete.js'),
-    Schema = mongoose.Schema;
+const should = require('should');
+const mongoose = require('mongoose');
+    
+const soft_delete = require('../src/mongoose-softdelete.js');
+const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/softtest');
+mongoose.connect('mongodb://localhost/softtest', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'Connection Error: please check if mongodb is running on localhost'));
 
-var TestSchema = new Schema({
+const TestSchema = new Schema({
   name: { type: String, default: 'Riyadh' },
   comment: { type: String, default: 'lalalalalalala' }
 });
 
 TestSchema.plugin(soft_delete);
 
-var Test = mongoose.model('Test', TestSchema);
-var test1 = new Test();
-var test2 = new Test();
-var test3 = new Test({ deleted: true });
+const Test = mongoose.model('Test', TestSchema);
+const test1 = new Test();
+const test2 = new Test();
+const test3 = new Test({ deleted: true });
 
 describe('Mongoose Softdelete Plugin', function () {
   it('should add fields to schema if they do not exist already', function (done) {
