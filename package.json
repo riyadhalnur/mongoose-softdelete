@@ -1,7 +1,7 @@
 {
   "name": "mongoose-softdelete",
   "description": "Mongoose plugin that enables soft deletion of Models/Documents.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "http://riyadhalnur.github.io/mongoose-softdelete",
   "keywords": [
     "mongoose",
@@ -23,12 +23,7 @@
   "bugs": {
     "url": "https://github.com/riyadhalnur/mongoose-softdelete/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/riyadhalnur/mongoose-softdelete/blob/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "main": "src/mongoose-softdelete",
   "types": "index.d.ts",
   "engines": {
