@@ -34,8 +34,8 @@
     "node": ">= 10.x"
   },
   "devDependencies": {
-    "mocha": "7.0.0",
-    "mongoose": "5.8.9",
+    "mocha": "7.1.1",
+    "mongoose": "5.9.6",
     "should": "13.2.3"
   },
   "scripts": {
