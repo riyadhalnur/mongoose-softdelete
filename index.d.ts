@@ -3,7 +3,7 @@ import { Document, Model, Query } from 'mongoose';
 export interface ISoftDeletedDocument extends Document {
   deleted: Boolean;
   deletedAt: Date;
-};
+}
 
 export interface ISoftDeletedModel extends ISoftDeletedDocument {
   softdelete: (
@@ -13,8 +13,8 @@ export interface ISoftDeletedModel extends ISoftDeletedDocument {
   restore: (
     callback: (err: any, model: Model<ISoftDeletedDocument>) => void
   ) => void;
-};
+}
 
-export interface ISoftDeletedQuery extends Query {
-  isDeleted: (cond: Boolean = true) => Query;
-};
+export interface ISoftDeletedQuery extends Query<any> {
+  isDeleted: (cond: Boolean) => Query<any>;
+}
