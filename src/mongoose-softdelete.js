@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(schema) {
+export default function(schema) {
   schema.add({ deleted: Boolean });
   schema.add({ deletedAt: Date });
 
@@ -32,7 +32,7 @@ module.exports = function(schema) {
     if (typeof cond === 'undefined') {
       cond = true;
     }
-    
+
     return this.find({
       deleted: cond
     });
