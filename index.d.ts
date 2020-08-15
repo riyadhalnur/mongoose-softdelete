@@ -3,18 +3,12 @@ import { Document, Model, Query } from 'mongoose';
 export interface ISoftDeletedDocument extends Document {
   deleted: Boolean;
   deletedAt: Date;
+  softdelete: (callback: (err: any, model: ISoftDeletedDocument) => void) => void;
+  restore: (callback: (err: any, model: ISoftDeletedDocument) => void) => void;
 }
 
-export interface ISoftDeletedModel extends ISoftDeletedDocument {
-  softdelete: (
-    callback: (err: any, model: Model<ISoftDeletedDocument>) => void
-  ) => void;
-
-  restore: (
-    callback: (err: any, model: Model<ISoftDeletedDocument>) => void
-  ) => void;
-}
+export type ISoftDeletedModel = Model<ISoftDeletedDocument>;
 
 export interface ISoftDeletedQuery extends Query<any> {
-  isDeleted: (cond: Boolean) => Query<any>;
+  isDeleted: (condition: Boolean) => Query<any>;
 }
