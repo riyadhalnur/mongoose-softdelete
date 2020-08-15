@@ -31,9 +31,9 @@
     "node": ">= 12.x"
   },
   "devDependencies": {
-    "@types/mongoose": "5.7.8",
-    "mocha": "7.1.1",
-    "mongoose": "5.9.6",
+    "@types/mongoose": "5.7.36",
+    "mocha": "8.1.1",
+    "mongoose": "5.10.0",
     "should": "13.2.3"
   },
   "scripts": {
