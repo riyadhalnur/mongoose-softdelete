@@ -75,4 +75,30 @@ test.restore(function (err, newTest) {
 Test.find().isDeleted(false).exec();
 ```
 
+## Typescript
+
+```ts
+import { Schema, model } from 'mongoose';
+import softdelete, { ISoftDeletedDocument } from 'mongoose-softdelete';
+
+interface ITestDocument extends ISoftDeletedDocument {
+    somefield: string;
+}
+
+const TestSchema = new Schema({
+    somefield: { type: String, default: 'Hello World!' }
+});
+
+TestSchema.plugin(softdelete);
+
+const Test = model<ITestDocument>('Test', TestSchema);
+const test1 = new Test();
+
+test1.softdelete(function (err, newTest: ITestDocument) {
+    // ...
+});
+```
+
+---
+
 Built with love in Dhaka, Bangladesh by [Riyadh Al Nur](https://twitter.com/riyadhalnur)
