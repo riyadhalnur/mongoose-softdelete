@@ -1,9 +1,10 @@
 'use strict';
 
-const should = require('should');
-const mongoose = require('mongoose');
-    
-const soft_delete = require('../src/mongoose-softdelete.js');
+import should from 'should';
+import mongoose from 'mongoose';
+
+import softdelete from '../src/mongoose-softdelete.js';
+
 const Schema = mongoose.Schema;
 
 mongoose.connect('mongodb://localhost/softtest', {
@@ -20,7 +21,7 @@ const TestSchema = new Schema({
   comment: { type: String, default: 'lalalalalalala' }
 });
 
-TestSchema.plugin(soft_delete);
+TestSchema.plugin(softdelete);
 
 const Test = mongoose.model('Test', TestSchema);
 const test1 = new Test();
