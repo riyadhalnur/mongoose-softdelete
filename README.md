@@ -97,6 +97,10 @@ const test1 = new Test();
 test1.softdelete(function (err, newTest: ITestDocument) {
     // ...
 });
+
+// chainable query method
+// defaults to true unless specified
+(Test.find({}) as unknown as ISoftDeletedDocumentQuery).isDeleted(false)
 ```
 
 ---
