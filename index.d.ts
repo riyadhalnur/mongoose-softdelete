@@ -1,4 +1,4 @@
-import { Document, Model, Query, Schema } from 'mongoose';
+import { Document, Model, Query, Schema, DocumentQuery } from 'mongoose';
 
 export interface ISoftDeletedDocument extends Document {
   deleted: Boolean;
@@ -9,8 +9,11 @@ export interface ISoftDeletedDocument extends Document {
 
 export type ISoftDeletedModel = Model<ISoftDeletedDocument>;
 
-export interface ISoftDeletedQuery extends Query<any> {
-  isDeleted: (condition: Boolean) => Query<any>;
+interface IQueryMethods {
+  isDeleted: (condition: Boolean) => Query<ISoftDeletedDocument>;
 }
+
+export type ISoftDeletedQuery = Query<ISoftDeletedDocument> & IQueryMethods;
+export type ISoftDeletedDocumentQuery = DocumentQuery<ISoftDeletedDocument[], ISoftDeletedDocument> & IQueryMethods;
 
 export default function (schema: Schema<any>): void;
