@@ -31,10 +31,12 @@
     "node": ">= 12.x"
   },
   "devDependencies": {
-    "@types/mongoose": "5.7.36",
-    "mocha": "8.1.1",
-    "mongoose": "5.10.0",
+    "mocha": "8.2.1",
+    "mongoose": "5.11.13",
     "should": "13.2.3"
+  },
+  "peerDependencies": {
+    "mongoose": ">=5.11.x"
   },
   "scripts": {
     "test": "mocha tests/tests.js --exit"
