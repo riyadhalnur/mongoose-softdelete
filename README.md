@@ -105,4 +105,4 @@ test1.softdelete(function (err, newTest: ITestDocument) {
 
 ---
 
-Built with love in Dhaka, Bangladesh by [Riyadh Al Nur](https://twitter.com/riyadhalnur)
+Built with love in Dhaka, Bangladesh by [Riyadh Al Nur](https://verticalaxisbd.com)
