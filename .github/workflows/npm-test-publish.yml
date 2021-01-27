@@ -17,9 +17,10 @@ jobs:
       matrix:
         node_version: ["12", "14"]
         os: [ubuntu-latest, macOS-latest]
+        mongodb: ["4.4"]
     services:
       mongodb:
-        image: mongo
+        image: mongo:${{ matrix.mongodb }}
         ports:
           - 27017:27017
     steps:
