@@ -17,12 +17,13 @@ jobs:
       matrix:
         node_version: ["12", "14"]
         os: [ubuntu-latest, macOS-latest]
-        mongodb: ["4.4"]
     services:
       mongodb:
-        image: mongo:${{ matrix.mongodb }}
+        image: mongo
         ports:
           - 27017:27017
+        volumes:
+          - ${{ github.workspace }}:/workspace
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
