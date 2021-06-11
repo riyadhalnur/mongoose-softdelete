@@ -12,10 +12,11 @@ export interface ISoftDeletedDocument extends Document {
 export type ISoftDeletedModel = Model<ISoftDeletedDocument>;
 
 interface IQueryMethods {
-  isDeleted: (condition: Boolean) => Query<ISoftDeletedDocument>;
+  isDeleted: (condition: Boolean) => Query<boolean, ISoftDeletedDocument>;
 }
 
-export type ISoftDeletedQuery = Query<ISoftDeletedDocument> & IQueryMethods;
+export type ISoftDeletedQuery = Query<boolean, ISoftDeletedDocument> &
+  IQueryMethods;
 export type ISoftDeletedDocumentQuery = DocumentQuery<
   ISoftDeletedDocument[],
   ISoftDeletedDocument

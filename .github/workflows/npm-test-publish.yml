@@ -1,0 +1,33 @@
+name: Node.js Package
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+  release:
+    types: [created]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: ["12", "14"]
+        os: [ubuntu-latest, macOS-latest]
+    services:
+      mongodb:
+        image: mongo
+        ports:
+          - 27017:27017
+        volumes:
+          - ${{ github.workspace }}:/workspace
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - run: npm i
+      - run: npm test
