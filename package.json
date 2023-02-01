@@ -33,7 +33,7 @@
   "devDependencies": {
     "@types/mongoose": "5.7.36",
     "mocha": "8.1.1",
-    "mongoose": "5.10.0",
+    "mongoose": "5.13.15",
     "should": "13.2.3"
   },
   "scripts": {
