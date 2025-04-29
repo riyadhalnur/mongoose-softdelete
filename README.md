@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/riyadhalnur/mongoose-softdelete.svg?branch=master)](https://travis-ci.org/riyadhalnur/mongoose-softdelete)
 
+# Project Archival
+This project will be archived and the NPM package will be marked as deprecated. If you are using this package, look into migrating to [Mongoose Delete](https://github.com/dsanel/mongoose-delete) by [Sanel Deljkic](https://github.com/dsanel) which is still supported and is under [consideration](https://github.com/dsanel/mongoose-delete/issues/159) to be accepted
+as an official Mongoose plugin.
+
 # Mongoose Soft Delete Plugin
 
 Mongoose plugin that enables soft deletion of Models/Documents.
